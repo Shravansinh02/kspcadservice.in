@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -22,14 +26,23 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Mock submission - will be replaced with backend API
-    setTimeout(() => {
-      toast.success("Message Sent!", {
-        description: "We'll get back to you within 24 hours.",
+    try {
+      const response = await axios.post(`${API}/contact`, formData);
+      
+      if (response.status === 200) {
+        toast.success("Message Sent!", {
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("Failed to send message", {
+        description: "Please try again or contact us via WhatsApp.",
       });
-      setFormData({ name: '', email: '', phone: '', message: '' });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
