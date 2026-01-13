@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
-import { useToast } from '../hooks/use-toast';
+import { toast } from 'sonner';
 
 const ContactSection = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,8 +24,7 @@ const ContactSection = () => {
 
     // Mock submission - will be replaced with backend API
     setTimeout(() => {
-      toast({
-        title: "Message Sent!",
+      toast.success("Message Sent!", {
         description: "We'll get back to you within 24 hours.",
       });
       setFormData({ name: '', email: '', phone: '', message: '' });
