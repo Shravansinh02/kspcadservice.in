@@ -83,6 +83,38 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/contact", response_model=ContactFormSubmission)
+async def create_contact_submission(input: ContactFormCreate):
+    try:
+        contact_dict = input.model_dump()
+        contact_obj = ContactFormSubmission(**contact_dict)
+        
+        # Convert to dict and serialize datetime to ISO string for MongoDB
+        doc = contact_obj.model_dump()
+        doc['timestamp'] = doc['timestamp'].isoformat()
+        
+        await db.contact_submissions.insert_one(doc)
+        return contact_obj
+    except Exception as e:
+        logging.error(f"Error saving contact form: {e}")
+        raise HTTPException(status_code=500, detail="Failed to submit contact form")
+
+@api_router.get("/contact", response_model=List[ContactFormSubmission])
+async def get_contact_submissions():
+    try:
+        # Exclude MongoDB's _id field from the query results
+        submissions = await db.contact_submissions.find({}, {"_id": 0}).sort("timestamp", -1).to_list(1000)
+        
+        # Convert ISO string timestamps back to datetime objects
+        for submission in submissions:
+            if isinstance(submission['timestamp'], str):
+                submission['timestamp'] = datetime.fromisoformat(submission['timestamp'])
+        
+        return submissions
+    except Exception as e:
+        logging.error(f"Error fetching contact submissions: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch contact submissions")
+
 # Include the router in the main app
 app.include_router(api_router)
 
