@@ -1,0 +1,11 @@
+{
+  "name": "ksp-cad-service-frontend",
+  "version": "1.0.0",
+  "build": {
+    "command": "yarn build",
+    "publish": "build",
+    "environment": {
+      "NODE_VERSION": "20"
+    }
+  }
+}
