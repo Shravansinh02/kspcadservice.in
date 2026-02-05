@@ -11,10 +11,11 @@
   --text-secondary: rgba(255, 255, 255, 0.85);
   --text-muted: #666666;
   
-  /* Brand Colors - Cyan Green */
-  --brand-primary: #00FFD1;
-  --brand-hover: rgba(0, 255, 209, 0.1);
-  --brand-active: #00d4ae;
+  /* Brand Colors - Blue Cyan matching logo */
+  --brand-primary: #00B4D8;
+  --brand-secondary: #0096C7;
+  --brand-hover: rgba(0, 180, 216, 0.1);
+  --brand-active: #0077B6;
   
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.1);
