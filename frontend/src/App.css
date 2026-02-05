@@ -141,7 +141,7 @@ body {
 
 .dark-header.scrolled {
   background: rgba(0, 0, 0, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 255, 209, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 180, 216, 0.1);
 }
 
 .header-content {
