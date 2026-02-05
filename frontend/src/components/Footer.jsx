@@ -59,7 +59,7 @@ const Footer = () => {
           <ul className="footer-contact">
             <li>
               <Mail size={16} />
-              <span>info@kspcadservice.top</span>
+              <span>info@kspcadservice.in</span>
             </li>
             <li>
               <Phone size={16} />
