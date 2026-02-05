@@ -415,7 +415,7 @@ body {
 .service-card:hover {
   transform: translateY(-8px);
   border-color: var(--brand-primary);
-  box-shadow: 0 12px 40px rgba(0, 255, 209, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 180, 216, 0.15);
 }
 
 .service-card:hover::before {
