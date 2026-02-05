@@ -25,7 +25,11 @@ const Header = () => {
     <header className={`dark-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="logo-container" onClick={() => scrollToSection('hero')}>
-          <h1 className="logo-text">KSP CAD Service</h1>
+          <img 
+            src="https://customer-assets.emergentagent.com/job_cad-blueprint-1/artifacts/a5dom5cc_KSP%20CAD%20LOGO.png" 
+            alt="KSP CAD Service" 
+            className="logo-image"
+          />
         </div>
 
         <nav className="dark-nav desktop-nav">
