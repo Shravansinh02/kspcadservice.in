@@ -59,7 +59,7 @@ const ContactSection = () => {
             <div className="contact-info-items">
               <div className="contact-info-item">
                 <Mail size={20} />
-                <span>info@kspcadservice.top</span>
+                <span>info@kspcadservice.in</span>
               </div>
               <div className="contact-info-item">
                 <Phone size={20} />
