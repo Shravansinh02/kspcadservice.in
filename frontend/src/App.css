@@ -491,7 +491,7 @@ body {
 .portfolio-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: var(--brand-primary);
-  box-shadow: 0 16px 48px rgba(0, 255, 209, 0.2);
+  box-shadow: 0 16px 48px rgba(0, 180, 216, 0.2);
 }
 
 .portfolio-image-wrapper {
