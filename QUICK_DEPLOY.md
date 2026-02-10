@@ -29,8 +29,13 @@ wrangler pages deploy build --project-name=ksp-cad-service
 ### Option 2: Using GitHub
 1. Push frontend folder to GitHub
 2. Connect repository to Cloudflare Pages
-3. Set build command: `yarn build`
-4. Set build output: `build`
+3. Set **Root directory**: `frontend` *(recommended)*
+4. Set build command: `yarn build`
+5. Set build output: `build`
+
+   Alternative (if keeping root directory as `/`):
+   - Build command: `npm run build`
+   - Build output: `frontend/build`
 5. Set environment variable: `REACT_APP_BACKEND_URL=<your-railway-url>`
 
 ## Environment Variables

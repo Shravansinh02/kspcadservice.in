@@ -1,0 +1,12 @@
+{
+  "name": "kspcadservice-monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm --workspace frontend run build",
+    "test": "npm --workspace frontend run test",
+    "start": "npm --workspace frontend run start"
+  }
+}
